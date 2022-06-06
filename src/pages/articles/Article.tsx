@@ -6,7 +6,6 @@ import useSWR from "swr";
 export default function Article() {
   const { id } = useParams();
   const { data } = useSWR(`https://jsonplaceholder.typicode.com/posts/${id}`);
-
   return (
     <div className="article">
       <Helmet>
