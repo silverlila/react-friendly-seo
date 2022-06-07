@@ -1,11 +1,12 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import useSWR from "swr";
+import { config } from "../../config";
 
 export default function Article() {
   const { id } = useParams();
-  const { data } = useSWR(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const { data } = useSWR(`${config.endpoint}/posts/${id}`);
   return (
     <div className="article">
       <Helmet>
